@@ -9,6 +9,7 @@ resource "aws_instance" "intro" {
      vpc_security_group_ids = ["sg-0cf73c9432178f577"]
      tags = {
         Name = "Dove-instances"
-        app = "test"
+        Projects = "Dove"
+
      }
 }
