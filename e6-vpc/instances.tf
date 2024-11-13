@@ -13,11 +13,10 @@ resource "aws_instance" "dove-dove" {
     tags = {
         Name = "my-dove"
     }
-
+}
 resource "aws_ebs_volume" "vol_4_dove" {
   availability_zone = var.ZONE1
   size              = 3
-
   tags = {
     Name = "extr-vol-4-dove"
   }
@@ -46,7 +45,6 @@ resource "aws_volume_attachment" "atch_vol_dove" {
         host = self.public_ip
     }
 
-}
 
 output "PrivateIP" {
     value = aws_instance.dove-dove.private_ip
