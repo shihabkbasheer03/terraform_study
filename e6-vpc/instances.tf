@@ -49,11 +49,11 @@ resource "aws_volume_attachment" "atch_vol_dove" {
 }
 
 output "PrivateIP" {
-    value = aws_instance.dove-inst.private_ip
+    value = aws_instance.dove-dove.private_ip
 
 }
 
 output "publicIP" {
-    value = aws_instance.dove-inst.public_ip
+    value = aws_instance.dove-dove.public_ip
 
 }
