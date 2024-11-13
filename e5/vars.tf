@@ -17,3 +17,11 @@ variable AMIS {
 variable USER {
   default = "ec2-user"
 }
+
+variable PUB_KEY {
+  default = "dovekey.pub"
+}
+
+variable PRIV_KEY {
+  default = "dovekey"
+}
