@@ -32,3 +32,7 @@ variable PUB_KEY {
 variable PRIV_KEY {
   default = "dovekey"
 }
+
+variable MYIP {
+    default = "106.222.237.79/32"
+}
