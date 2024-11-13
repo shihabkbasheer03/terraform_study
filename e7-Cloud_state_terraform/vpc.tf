@@ -17,7 +17,7 @@ module "vpc" {
         Environment = "Prod"
     }
     vpc_tags {
-        name = var.VPC_NAME
+        Name = var.VPC_NAME
     }
 }
 
