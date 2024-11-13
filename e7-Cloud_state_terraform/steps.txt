@@ -1,0 +1,8 @@
+- setup Terraform with Backend
+Setup VPC[Secure & HA]
+Provision Beanstack Environment 
+Provision Backend Services
+    RDS
+    Elastic Cache
+    Active MQ
+Security Group, Key pairs, Bastion Host ..
