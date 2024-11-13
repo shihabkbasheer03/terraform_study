@@ -34,5 +34,5 @@ variable PRIV_KEY {
 }
 
 variable MYIP {
-    default = "106.222.237.79/32"
+    default = "115.245.213.196/32"
 }
