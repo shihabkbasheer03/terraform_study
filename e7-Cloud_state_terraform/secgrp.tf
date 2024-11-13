@@ -82,6 +82,7 @@ resource "aws_security_group" "vprofile-backend-sg" {
 
 resource "aws_security_group" "sec_group_allow_itself" {
   name = "sec-group-allow-itself"
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     from_port                = 0
