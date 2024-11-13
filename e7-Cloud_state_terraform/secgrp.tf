@@ -54,7 +54,7 @@ resource "aws_security_group" "vprofile-prod-sg" {
     from_port         = 22
     to_port           = 22
     protocol          = "tcp"
-    Security_groups = [aws_security_group.vprofile-bastin-sg.id]
+    security_groups = [aws_security_group.vprofile-bastin-sg.id]
 
   }
 
@@ -75,16 +75,23 @@ resource "aws_security_group" "vprofile-backend-sg" {
     from_port         = 0
     to_port           = 0
     protocol          = "-1"
-    Security_groups = [aws_security_group.vprofile-prod-sg.id]
+    security_groups = [aws_security_group.vprofile-prod-sg.id]
 
   }
 }
 
 resource "aws_security_group" "sec_group_allow_itself" {
-  type = "ingress"
-  from_port = 0
-  to_port = 65535
-  protocol = "tcp"
-  security_group_id = aws_security_group.vprofile-backend-sg.id
-  source_security_group_id = aws_security_group.vprofile-backend-sg.id
+  name = "sec-group-allow-itself"
+
+  ingress {
+    from_port                = 0
+    to_port                  = 65535
+    protocol                 = "tcp"
+    security_groups          = [aws_security_group.vprofile-backend-sg.id]
+    self                     = true
+  }
+
+  tags = {
+    Name = "sec-group-allow-itself"
+  }
 }
