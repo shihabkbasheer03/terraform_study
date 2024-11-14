@@ -100,11 +100,12 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
 #    name      = "aws:elasticbeanstalk:environment:process:default"
 #    value     = "true"
 #  }
-       setting {
-     namespace  = "aws:elb:loadbalancer"    # Correct namespace for stickiness
-     option_name = "StickinessEnabled"             # Correct option name
-     value       = "true"                          # Set to "true" to enable stickiness
-}
+
+  setting {
+    namespace  = "aws:elb:loadbalancer"          # Correct namespace for load balancer stickiness
+    option_name = "StickinessEnabled"            # Correct option name for enabling stickiness
+    value       = "true"
+  }
       setting {
     namespace = "aws:elasticbeanstalk:command"
     name      = "BatchSizeType"
