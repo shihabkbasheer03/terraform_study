@@ -117,7 +117,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace  = "aws:autoscaling:launchconfiguration"
     option_name = "SecurityGroups"
-    value       = aws_security_group.vprofile-prod-dg.id
+    value       = aws_security_group.vprofile-prod-sg.id
   }
   setting {
     namespace  = "aws:elbv2:loadbalancer"
