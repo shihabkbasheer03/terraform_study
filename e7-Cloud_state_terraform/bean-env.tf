@@ -106,12 +106,6 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   }
 
   setting {
-    namespace = "aws:elb:loadbalancer"
-    name      = "StickinessEnabled"
-    value     = "true"
-  }
-
-  setting {
     namespace = "aws:elasticbeanstalk:command"
     name      = "BatchSizeType"
     value     = "Fixed"
@@ -132,7 +126,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
-    value     = aws_security_group.vprofile-prod-sg.id
+    value     = aws_security_group.vprofile-prod-dg.id
   }
 
   setting {
