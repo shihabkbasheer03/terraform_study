@@ -22,12 +22,12 @@ resource "aws_db_instance" "vprofile-rds" {
   allocated_storage    = 20
   storage_type         = "gp3"
   engine               = "mysql"
-  engine_version       = "5.6.40"
+  engine_version       = "8.0"
   instance_class       = "db.t2.micro"
   db_name              = var.dbname
   username             = var.dbuser
   password             = var.dbpass
-  parameter_group_name = "default.mysql5.6"
+  parameter_group_name = "default.mysql8.0"
   multi_az             = "false"
   publicly_accessible  = "false"
   skip_final_snapshot  = true
@@ -42,7 +42,7 @@ resource "aws_elasticache_cluster" "vprofile-cache" {
   engine               = "memcached"
   node_type            = "cache.t2.micro"
   num_cache_nodes      = 1
-  parameter_group_name = "default.memcached1.5"
+  parameter_group_name = "default.memcached1.6"
   port                 = 11211
   subnet_group_name = aws_elasticache_subnet_group.vprofile-ecache-subgrp.name
   security_group_ids = [aws_security_group.vprofile-backend-sg.id]
@@ -52,7 +52,7 @@ resource "aws_elasticache_cluster" "vprofile-cache" {
 resource "aws_mq_broker" "vprofile-rmq" {
   broker_name = "vprofile-rmq"
   engine_type        = "ActiveMQ"
-  engine_version     = "5.15.0"
+  engine_version     = "5.18"
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.vprofile-backend-sg.id]
   subnet_ids = [module.vpc.private_subnets[0]]
