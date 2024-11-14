@@ -82,12 +82,6 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   }
 
   setting {
-    namespace = "aws:elasticbeanstalk:application:system"
-    name      = "SystemType"
-    value     = "enhanced"
-  }
-
-  setting {
     namespace = "aws:autoscaling:updatepolicy:rollingupdate"
     name      = "RollingUpdateEnabled"
     value     = "true"
@@ -138,7 +132,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "SecurityGroups"
-    value     = aws_security_group.vprofile-prod-sg.id
+    value     = aws_security_group.vprofile-prod-dg.id
   }
 
   setting {
