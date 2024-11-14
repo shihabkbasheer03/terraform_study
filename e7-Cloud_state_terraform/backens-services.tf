@@ -22,8 +22,8 @@ resource "aws_db_instance" "vprofile-rds" {
   allocated_storage    = 20
   storage_type         = "gp3"
   engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t2.micro"
+  engine_version       = "8.0.39"
+  instance_class       = "db.t3.micro"
   db_name              = var.dbname
   username             = var.dbuser
   password             = var.dbpass
@@ -56,6 +56,7 @@ resource "aws_mq_broker" "vprofile-rmq" {
   host_instance_type = "mq.t2.micro"
   security_groups    = [aws_security_group.vprofile-backend-sg.id]
   subnet_ids = [module.vpc.private_subnets[0]]
+  auto_minor_version_upgrade = true
   user {
     username = var.rmquser
     password = var.rmqpass
