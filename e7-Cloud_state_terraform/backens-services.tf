@@ -22,7 +22,7 @@ resource "aws_db_instance" "vprofile-rds" {
   allocated_storage    = 20
   storage_type         = "gp3"
   engine               = "mysql"
-  engine_version       = "5.6.34"
+  engine_version       = "5.6.40"
   instance_class       = "db.t2.micro"
   db_name              = var.dbname
   username             = var.dbuser
