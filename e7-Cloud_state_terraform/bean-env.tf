@@ -101,7 +101,7 @@ resource "aws_elastic_beanstalk_environment" "vprofile-bean-prod" {
 #    value     = "true"
 #  }
        setting {
-     namespace  = "aws:elb:policies:stickiness"    # Correct namespace for stickiness
+     namespace  = "aws:elb:loadbalancer"    # Correct namespace for stickiness
      option_name = "StickinessEnabled"             # Correct option name
      value       = "true"                          # Set to "true" to enable stickiness
 }
