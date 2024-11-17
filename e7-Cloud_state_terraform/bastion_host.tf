@@ -4,7 +4,7 @@ resource "aws_instance" "vprofile-bastion" {
   key_name = aws_key_pair.vprofilekey.key_name
   subnet_id = module.vpc.public_subnets[0]
   count = var.instance_count
-  vpc_security_group_ids = [aws_security_group.vprofile-bastin-sg.id]
+  vpc_security_group_ids = [aws_security_group.vprofile-bastion-sg.id]
   tags = {
     Name = "vprofile-bastion"
     PROJECT = "vprofile"
@@ -21,7 +21,7 @@ resource "aws_instance" "vprofile-bastion" {
     ]
   }
   connection {
-    user = var.USERNAME
+    user = var.USER
     private_key = file(var.PRIV_KEY)
     host = self.public_ip
     }
